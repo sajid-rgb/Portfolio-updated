@@ -34,7 +34,6 @@ Senior Front-End Developer with **5+ years of production experience** architecti
 - ⚡ **Interactive Capabilities Matrix**: Categorized technical stack covering Core Frameworks, State Management, UI Systems, and Backend APIs with real-time keyword search.
 - 📬 **Live Contact Station**: Real Next.js server route (`/api/contact`) dispatching messages directly to email, complete with input validation and 1-click fallback to native mail clients (Gmail/Apple Mail/Outlook) and WhatsApp.
 - ⌨️ **Command Palette (⌘K)**: Fast keyboard navigation to jump between sections, toggle themes, or copy contact information.
-- 📊 **Real-Time Telemetry HUD**: Live frame rate (FPS), DOM node count, and Next.js Turbopack indicators.
 
 ---
 

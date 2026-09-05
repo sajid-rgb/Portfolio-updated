@@ -8,7 +8,6 @@ import SkillsRadar from "./components/SkillsRadar";
 import CareerTimeline from "./components/CareerTimeline";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
-import PerformanceHUD from "./components/PerformanceHUD";
 import CommandPalette from "./components/CommandPalette";
 import Toast from "./components/Toast";
 
@@ -118,9 +117,6 @@ export default function Home() {
 
       {/* Minimal Footer */}
       <Footer />
-
-      {/* Live Performance HUD */}
-      <PerformanceHUD />
 
       {/* Command Palette Modal (Cmd+K) */}
       <CommandPalette
