@@ -1,0 +1,458 @@
+/* ==========================================================================
+   Md. Sajidur Rahman - Senior Front-End & Enterprise ERP Architecture Portfolio
+   Modern Editorial Tech Design System with Dark & White (Light) Themes
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Theme Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Default: Dark Obsidian & Electric Indigo/Cyan */
+  --bg-base: #070a13;
+  --bg-subtle: #0d1220;
+  --bg-surface: rgba(14, 21, 37, 0.78);
+  --bg-surface-elevated: rgba(22, 33, 58, 0.88);
+  --bg-card: rgba(14, 21, 37, 0.62);
+  --bg-card-hover: rgba(22, 33, 58, 0.78);
+  --bg-input: rgba(10, 16, 30, 0.8);
+
+  /* Accents */
+  --accent-primary: #00e5ff;
+  --accent-secondary: #818cf8;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-glow: rgba(0, 229, 255, 0.25);
+  --accent-glow-secondary: rgba(129, 140, 248, 0.2);
+
+  --gradient-holo: linear-gradient(135deg, #00e5ff 0%, #818cf8 50%, #ec4899 100%);
+  --gradient-badge: linear-gradient(90deg, rgba(0, 229, 255, 0.12), rgba(129, 140, 248, 0.12));
+
+  /* Typography Colors */
+  --text-white: #ffffff;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-accent: var(--accent-primary);
+
+  /* Borders & Glass */
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-glass: rgba(255, 255, 255, 0.14);
+  --border-active: var(--accent-primary);
+  --backdrop-blur: blur(20px);
+  --backdrop-blur-sm: blur(10px);
+
+  /* Shadows & Elevations */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 12px 36px -12px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 35px var(--accent-glow);
+  --shadow-glow-sm: 0 0 16px var(--accent-glow);
+
+  /* Orb opacities */
+  --orb-opacity: 0.26;
+  --grid-line: rgba(255, 255, 255, 0.025);
+
+  /* Code block */
+  --code-bg: #030712;
+  --code-text: #38bdf8;
+  --code-border: rgba(255, 255, 255, 0.1);
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light / White Mode Overrides */
+html[data-theme="light"] {
+  --bg-base: #f8fafc;
+  --bg-subtle: #ffffff;
+  --bg-surface: rgba(255, 255, 255, 0.88);
+  --bg-surface-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #f8fafc;
+
+  /* Refined Light Mode Accents */
+  --accent-primary: #0284c7; /* Vivid sky blue */
+  --accent-secondary: #6366f1; /* Indigo */
+  --accent-emerald: #059669;
+  --accent-amber: #d97706;
+  --accent-rose: #e11d48;
+  --accent-glow: rgba(2, 132, 199, 0.18);
+  --accent-glow-secondary: rgba(99, 102, 241, 0.15);
+
+  --gradient-holo: linear-gradient(135deg, #0284c7 0%, #6366f1 50%, #db2777 100%);
+  --gradient-badge: linear-gradient(90deg, rgba(2, 132, 199, 0.08), rgba(99, 102, 241, 0.08));
+
+  /* Typography Colors */
+  --text-white: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-accent: #0284c7;
+
+  /* Borders & Glass */
+  --border-subtle: #e2e8f0;
+  --border-glass: rgba(0, 0, 0, 0.09);
+  --border-active: #0284c7;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 12px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04);
+  --shadow-glow: 0 0 30px rgba(2, 132, 199, 0.14);
+  --shadow-glow-sm: 0 0 14px rgba(2, 132, 199, 0.12);
+
+  /* Orbs & grid */
+  --orb-opacity: 0.14;
+  --grid-line: rgba(0, 0, 0, 0.035);
+
+  /* Code block */
+  --code-bg: #0f172a;
+  --code-text: #7dd3fc;
+  --code-border: #334155;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+::selection {
+  background: var(--accent-primary);
+  color: #030712;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Ambient Background Layer
+   -------------------------------------------------------------------------- */
+.ambient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: var(--orb-opacity);
+  animation: floatOrb 24s ease-in-out infinite alternate;
+  transition: opacity 400ms ease;
+}
+
+.ambient-orb-1 {
+  top: -10%;
+  left: 20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+}
+
+.ambient-orb-2 {
+  top: 40%;
+  right: -10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
+  animation-duration: 30s;
+  animation-delay: -6s;
+}
+
+.ambient-orb-3 {
+  bottom: -15%;
+  left: 10%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, var(--accent-rose) 0%, transparent 70%);
+  animation-duration: 34s;
+  animation-delay: -12s;
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 45%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+  transition: background-image 300ms ease;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.08); }
+  100% { transform: translate(-40px, 80px) scale(0.96); }
+}
+
+/* --------------------------------------------------------------------------
+   Layout Utilities
+   -------------------------------------------------------------------------- */
+.app-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-wrapper {
+  padding: 88px 0;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Typography & Headers
+   -------------------------------------------------------------------------- */
+.text-gradient {
+  background: var(--gradient-holo);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-primary);
+  background: var(--gradient-badge);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  color: var(--text-white);
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 18px var(--accent-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="light"] .btn-primary {
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px var(--accent-glow);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: var(--backdrop-blur-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  background: var(--border-subtle);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.82rem;
+}
+
+/* --------------------------------------------------------------------------
+   Cards & Glass Surfaces
+   -------------------------------------------------------------------------- */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+}
+
+.glass-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-card), 0 0 20px var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   Status Beacon Dot
+   -------------------------------------------------------------------------- */
+.status-beacon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  position: relative;
+}
+
+.status-beacon::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  opacity: 0.4;
+  animation: pulseBeacon 2s infinite ease-out;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Code Snippet Box
+   -------------------------------------------------------------------------- */
+.code-box {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.84rem;
+  color: var(--code-text);
+  overflow-x: auto;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-wrapper {
+    padding: 68px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 1.65rem;
+  }
+  .app-container {
+    padding: 0 16px;
+  }
+}
