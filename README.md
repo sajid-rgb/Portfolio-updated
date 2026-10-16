@@ -28,7 +28,7 @@ Full-Stack Engineer with **5 years of experience** architecting and scaling busi
 - 🌓 **Dual Theme Engine (Dark & White Mode)**: Seamlessly toggles between sleek Cyber Obsidian dark mode and crisp modern white mode with zero-flicker persistence via `localStorage`.
 - 🏢 **Enterprise Case Studies**: Real production breakdowns for:
   - **Echotex Garment ERP**: High-throughput data grid, reusable component library (+25% delivery boost), dynamic forms with Yup validation, Vitest/RTL automated testing, and client-side PDF export for garment factory operations.
-  - **V Shipping BD Logistics Platform**: Full-stack shipping tracking platform built with NestJS REST APIs, RBAC authorization, and optimized MongoDB schemas.
+  - **V Shipping BD Logistics Platform**: Full-stack shipping tracking platform built with NestJS REST APIs, RBAC authorization, and optimized MongoDB & Mongoose schemas.
   - **Echologyx CRO & Experimentation**: A/B testing implementations with Vanilla JS, HTML5, and CSS3 across AB Tasty, Convert, and Monetate, maintaining optimal Web Vitals.
   - **Unite Living (Norway)**: Norwegian PropTech platform built with an agile team of 20+ engineers using React, REST APIs, and state caching.
   - **Tilleli Inc. (USA)**: Cross-platform mobile application built with React Native and Cloud Firestore real-time sync.

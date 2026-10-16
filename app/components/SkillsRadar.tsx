@@ -65,10 +65,10 @@ const SKILLS_DATA: SkillItem[] = [
     details: "Modular backend architecture, dependency injection, request validation (DTOs), and clean API services.",
   },
   {
-    name: "MongoDB",
+    name: "MongoDB & Mongoose",
     category: "backend",
     level: "Advanced",
-    details: "Document schema modeling, aggregation pipelines, query optimization, and indices for logistics tracking.",
+    details: "Mongoose ODM schema modeling, aggregation pipelines, query optimization, and indices for logistics tracking.",
   },
   {
     name: "PostgreSQL & SQL",

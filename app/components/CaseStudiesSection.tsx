@@ -72,16 +72,16 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/vshipping_erp.jpg",
     metrics: [
       { label: "Backend Service", value: "NestJS REST" },
-      { label: "Database Layer", value: "MongoDB & Indices" },
+      { label: "Database Layer", value: "MongoDB & Mongoose" },
       { label: "Access Security", value: "RBAC Guards" },
     ],
     stack: [
       "NestJS",
+      "MongoDB",
+      "Mongoose",
       "React.js",
       "TypeScript",
       "Node.js",
-      "Express.js",
-      "MongoDB",
       "RBAC",
       "REST APIs",
       "Tailwind CSS",
@@ -89,12 +89,12 @@ const CASE_STUDIES: CaseStudy[] = [
     problem:
       "Global maritime shipping operations required a unified logistics tracking platform to manage vessel schedules, container manifests, and multi-user clearance workflows with strict access controls and zero data latency.",
     solution:
-      "Engineered the complete full-stack solution: architected modular frontend application workflows and responsive user interfaces with React and Tailwind CSS. Built high-throughput backend services and REST APIs using NestJS clean modular architecture with robust request validation. Implemented role-based access control (RBAC) and led MongoDB schema design with specialized indexing for high-efficiency logistics tracking.",
+      "Engineered the complete full-stack solution: architected modular frontend application workflows and responsive user interfaces with React and Tailwind CSS. Built high-throughput backend services and REST APIs using NestJS clean modular architecture with robust request validation. Implemented role-based access control (RBAC) and led MongoDB & Mongoose schema design with specialized indexing for high-efficiency logistics tracking.",
     architectureNotes: [
       "Architected modular frontend application workflows and responsive user interfaces for shipping and logistics operations.",
       "Engineered backend services and REST APIs with NestJS, implementing clean modular architecture and request validation.",
       "Implemented secure authentication and role-based access control (RBAC) to protect shipment records and operational workflows.",
-      "Led MongoDB database design and query optimization, structuring schemas and indices for high-efficiency logistics tracking.",
+      "Led MongoDB & Mongoose database design and query optimization, structuring schemas and indices for high-efficiency logistics tracking.",
     ],
   },
   {
