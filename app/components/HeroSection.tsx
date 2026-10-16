@@ -10,11 +10,11 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionProps) {
   const roles = [
-    "5+ Years Senior Front-End Developer",
-    "Enterprise ERP & Data Grid Specialist",
-    "React, Next.js & TypeScript Architect",
-    "Zustand, Redux Toolkit & RTK Query Expert",
-    "Tailwind CSS, Material UI & Styled-Components",
+    "Full-Stack Engineer | React, Next.js & Node.js",
+    "Enterprise ERP Specialist for Garment Manufacturing",
+    "TypeScript, NestJS, Express.js & MongoDB Architect",
+    "Automated Testing (Vitest & React Testing Library)",
+    "High-Performance Data Grids, React-PDF & pdfMake",
   ];
 
   const [roleIndex, setRoleIndex] = useState(0);
@@ -64,7 +64,7 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
                 letterSpacing: "0.01em",
               }}
             >
-              Software Engineer @ Echologyx Ltd &amp; V-Shipping BD
+              Software Engineer @ Echotex Ltd
             </span>
             <span
               style={{
@@ -106,7 +106,7 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
               marginBottom: "20px",
             }}
           >
-            Building Scalable <span className="text-gradient">ERP &amp; Web Applications</span> with High-Impact Performance
+            Building Scalable <span className="text-gradient">Enterprise ERP &amp; Full-Stack Systems</span> with High-Impact Performance
           </h1>
 
           {/* Dynamic Role Subtitle */}
@@ -139,9 +139,9 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
               margin: "0 auto 36px auto",
             }}
           >
-            Frontend developer with <strong>5+ years of production experience</strong> crafting scalable ERP systems and modern web applications 
-            using <strong>React, TypeScript, Redux, Zustand, RTK Query, React Hook Form, Tailwind CSS, Material UI</strong>, 
-            and modern JavaScript. Specialized in high-throughput data grids, client-side PDF document generation, and zero-latency state machines.
+            Full-Stack Engineer with <strong>5 years of experience</strong> architecting and scaling business-critical enterprise applications. 
+            Deep expertise in <strong>React.js, TypeScript, Next.js</strong>, and modern state architectures, with practical hands-on knowledge in backend development using <strong>Node.js, Express.js, NestJS, and MongoDB</strong>. 
+            Proven track record optimizing complex ERP workflows for garment factory users, building reusable UI libraries cutting sprint times by 25%, and executing automated testing (<strong>Vitest, React Testing Library</strong>).
           </p>
 
           {/* Action CTAs */}
@@ -207,7 +207,7 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
                 <span style={{ fontSize: "1.1rem", color: "var(--accent-primary)" }}>Years</span>
               </div>
               <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginTop: "4px" }}>
-                Front-End Engineering
+                Full-Stack Engineering
               </div>
             </div>
 
@@ -226,10 +226,10 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
                 }}
               >
                 <GaugeIcon size={20} />
-                <span>1,500+</span>
+                <span>+25%</span>
               </div>
               <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginTop: "4px" }}>
-                Active Users on ERP
+                Sprint Delivery Speed Boost
               </div>
             </div>
 
@@ -247,10 +247,10 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
                   gap: "4px",
                 }}
               >
-                <span>-55%</span>
+                <span>Zero</span>
               </div>
               <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginTop: "4px" }}>
-                Re-Render Latency Cut
+                Redundant Re-Renders
               </div>
             </div>
 
@@ -272,7 +272,7 @@ export default function HeroSection({ onCopyEmail, copiedEmail }: HeroSectionPro
                 <span>Global</span>
               </div>
               <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginTop: "4px" }}>
-                Norway, US &amp; BD Projects
+                Bangladesh, Norway &amp; USA
               </div>
             </div>
           </div>

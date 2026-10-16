@@ -17,19 +17,15 @@ export default function Home() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
-  // Initialize theme from localStorage or system preference on mount
+  // Synchronize document attribute with theme
   useEffect(() => {
     try {
       const savedTheme = localStorage.getItem("portfolio_theme") as "dark" | "light" | null;
-      if (savedTheme === "light" || savedTheme === "dark") {
-        setTheme(savedTheme);
-        document.documentElement.setAttribute("data-theme", savedTheme);
-      } else {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const initialTheme = prefersDark ? "dark" : "light";
-        setTheme(initialTheme);
-        document.documentElement.setAttribute("data-theme", initialTheme);
-      }
+      const activeTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", activeTheme);
+      setTimeout(() => {
+        setTheme(activeTheme);
+      }, 0);
     } catch {
       document.documentElement.setAttribute("data-theme", "dark");
     }

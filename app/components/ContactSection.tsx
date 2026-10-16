@@ -12,7 +12,7 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    subject: "Senior Front-End Role",
+    subject: "Full-Stack Engineer Role",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -89,8 +89,8 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
             Let&apos;s Build <span className="text-gradient">Together</span>
           </h2>
           <p className="section-subtitle">
-            Looking for a 5+ years experienced front-end engineer for scalable ERP, web application,
-            or React/Next.js product development? Let&apos;s talk.
+            Looking for a 5-year experienced full-stack engineer for business-critical ERP,
+            scalable web systems, or React/Next.js and Node.js/NestJS product development? Let&apos;s talk.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
                 }}
               >
                 <span className="status-beacon" />
-                <span>Open for Full-Time &amp; High-Impact Roles</span>
+                <span>Open for Full-Stack &amp; High-Impact Roles</span>
               </div>
 
               <h3
@@ -153,7 +153,7 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
                   marginBottom: "14px",
                 }}
               >
-                5+ Years Experienced Front-end Developer • Dhaka, Bangladesh
+                Full-Stack Engineer (React, Next.js, TypeScript &amp; Node.js) • Dhaka, Bangladesh
               </p>
               <p
                 style={{
@@ -163,7 +163,7 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
                   marginBottom: "24px",
                 }}
               >
-                Experienced in architecting complex enterprise ERP systems, responsive modern web apps, and collaborative global team delivery across Bangladesh, Norway, and the United States.
+                Full-Stack Engineer with 5 years of experience architecting and scaling business-critical enterprise applications, garment manufacturing ERPs, and collaborative global delivery across Bangladesh, Norway, and the United States.
               </p>
 
               {/* Email Copy Box */}
@@ -284,7 +284,7 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
                 <span>GitHub</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/md-sajidur-rahman-a10b8895/"
+                href="https://www.linkedin.com/in/md-sajidur-rahman"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-secondary btn-sm"
@@ -490,10 +490,10 @@ export default function ContactSection({ onCopyEmail, copied }: ContactSectionPr
                       fontSize: "0.9rem",
                     }}
                   >
-                    <option value="Senior Front-End Role">Full-Time Senior Front-End Role</option>
-                    <option value="ERP Web Application Contract">ERP Web Application Development</option>
+                    <option value="Full-Stack Engineer Role">Full-Stack Engineer Role (React &amp; Node.js/NestJS)</option>
+                    <option value="Enterprise ERP Development">Enterprise ERP / Garment Industry Platform</option>
                     <option value="React / Next.js Consulting">React &amp; Next.js Architecture</option>
-                    <option value="General Sync">Technical Discussion / Inquiry</option>
+                    <option value="Technical Consultation">Technical Discussion / Inquiry</option>
                   </select>
                 </div>
 

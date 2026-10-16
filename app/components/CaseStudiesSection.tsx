@@ -2,7 +2,9 @@
 
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
-import { CodeIcon, LayersIcon, CloseIcon, CheckIcon, ExternalLinkIcon } from "./Icons";
+import { LayersIcon, CloseIcon, CheckIcon } from "./Icons";
+
+export type ProjectCategory = "all" | "erp" | "fullstack" | "cro" | "proptech" | "mobile";
 
 interface CaseStudy {
   id: string;
@@ -10,7 +12,7 @@ interface CaseStudy {
   subtitle: string;
   company: string;
   rolePeriod: string;
-  category: "all" | "erp" | "logistics" | "proptech" | "mobile";
+  category: "erp" | "fullstack" | "cro" | "proptech" | "mobile";
   categoryLabel: string;
   image: string;
   metrics: { label: string; value: string }[];
@@ -18,130 +20,116 @@ interface CaseStudy {
   problem: string;
   solution: string;
   architectureNotes: string[];
-  codeSnippet: string;
 }
 
 const CASE_STUDIES: CaseStudy[] = [
   {
-    id: "echologyx-erp",
-    title: "Enterprise ERP & High-Volume Data Grid",
-    subtitle: "Complex Data Grid, Dynamic Forms & Client-Side PDF Generation for 1,500+ Users",
-    company: "Echologyx Ltd (Uttara, Dhaka)",
-    rolePeriod: "Software Engineer | Sep 2023 — Present",
+    id: "echotex-erp",
+    title: "Echotex Enterprise Garment ERP & High-Density Data Grids",
+    subtitle: "High-Volume Production Data Grids, Multi-Step Compliance Forms & Automated PDF Reporting",
+    company: "Echotex Ltd (Gazipur, Dhaka)",
+    rolePeriod: "Software Engineer | May 2024 — Present",
     category: "erp",
-    categoryLabel: "Enterprise ERP",
-    image: "/images/echologyx_erp.jpg",
+    categoryLabel: "Garment ERP",
+    image: "/images/echotex_erp.jpg",
     metrics: [
-      { label: "Active Users", value: "1,500+" },
-      { label: "Re-Render Drops", value: "-55%" },
-      { label: "Client PDF Export", value: "pdfmake" },
+      { label: "Delivery Velocity", value: "+25%" },
+      { label: "Automated Tests", value: "Vitest + RTL" },
+      { label: "Export Engine", value: "React-PDF & pdfMake" },
     ],
-    stack: ["React", "TypeScript", "Redux", "Material UI", "React Hook Form", "Yup", "pdfmake", "Styled-Components"],
+    stack: [
+      "React.js",
+      "TypeScript",
+      "React Hook Form",
+      "Yup",
+      "React-PDF",
+      "pdfMake",
+      "Vitest",
+      "React Testing Library",
+      "REST & .NET APIs",
+    ],
     problem:
-      "Enterprise clients managing massive financial and operational data experienced table lag during high-frequency filter interactions, form re-render bottlenecks, and backend latency when generating multi-page PDF reports.",
+      "Garment factory manufacturing operations require managing thousands of daily production lines, high-density order allocations, and complex compliance records across multiple factory units. Inefficient form states caused heavy table lag, submission validation errors, and slow client-side PDF export times.",
     solution:
-      "Optimized the core ERP modules handling 1,500+ active enterprise users by eliminating unnecessary component re-renders with memoization and virtualization. Engineered dynamic validation forms with React Hook Form and Yup, implemented multi-column data grids, and designed instant client-side PDF document generation using pdfmake.",
+      "Architected modular frontend workflows and designed a standardized reusable component library cutting sprint delivery times by 25%. Eliminated redundant re-renders via memoization and state optimization, implemented multi-step forms with React Hook Form and Yup validation, engineered advanced data grids with server-side pagination, and authored comprehensive Vitest and React Testing Library test suites.",
     architectureNotes: [
-      "Designed reusable component primitives reducing overall team development cycle time across multiple ERP sub-modules.",
-      "Replaced heavy form state with React Hook Form uncontrolled inputs, avoiding component-tree re-renders on keystrokes.",
-      "Integrated declarative pdfmake schemas generating customized multi-column invoices and reports directly in the browser.",
-      "Collaborated closely with backend engineers to streamline REST API payload sizes and pagination contracts.",
+      "Architected and scaled frontend modules for an enterprise ERP platform used by garment factory users, translating complex operational logic into high-performance UI workflows.",
+      "Eliminated redundant React re-renders across complex ERP forms and data-heavy tables using memoization and state optimization, noticeably improving UI responsiveness.",
+      "Built dynamic, multi-step enterprise forms with React Hook Form and Yup validation, significantly minimizing submission errors.",
+      "Engineered advanced data grids featuring multi-column sorting, filtering, server-side pagination, and client-side PDF export (React-PDF, pdfMake).",
+      "Standardized frontend patterns by building a reusable component library, cutting sprint delivery times for feature teams by 25%.",
+      "Authored component test suites with Vitest and React Testing Library; collaborated with backend teams on REST/.NET API contracts and data schemas.",
     ],
-    codeSnippet: `// Dynamic Form Validation & Client-Side PDF Generator
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import pdfMake from "pdfmake/build/pdfmake";
-
-const erpFilterSchema = yup.object({
-  dateRange: yup.string().required(),
-  category: yup.string().required(),
-  minAmount: yup.number().positive(),
-});
-
-export function useErpDataGrid() {
-  const form = useForm({ resolver: yupResolver(erpFilterSchema) });
-
-  const exportPdfReport = (rows: TransactionRow[]) => {
-    const docDefinition = {
-      content: [
-        { text: 'ERP Financial Overview', style: 'header' },
-        {
-          table: {
-            headerRows: 1,
-            widths: ['*', '*', '*', '*'],
-            body: [
-              ['Invoice ID', 'Customer', 'Amount', 'Status'],
-              ...rows.map(r => [r.id, r.customer, r.amount, r.status])
-            ]
-          }
-        }
-      ]
-    };
-    pdfMake.createPdf(docDefinition).download('ERP_Report.pdf');
-  };
-
-  return { form, exportPdfReport };
-}`,
   },
   {
-    id: "vshipping-erp",
-    title: "V-Shipping Maritime Logistics ERP",
-    subtitle: "Vessel Routes, Container Schedules & Dynamic Admin Dashboard",
-    company: "V-Shipping BD",
-    rolePeriod: "Software Engineer (Part Time) | Aug 2025 — Present",
-    category: "logistics",
-    categoryLabel: "Logistics & Maritime",
+    id: "vshipping-fullstack",
+    title: "V Shipping BD – Full-Stack Maritime Logistics Platform",
+    subtitle: "Modular Frontend Architecture, NestJS REST Microservices & Optimized MongoDB Schemas",
+    company: "V Shipping BD (Full Stack Project)",
+    rolePeriod: "Full-Stack Project Architect",
+    category: "fullstack",
+    categoryLabel: "Full-Stack Logistics",
     image: "/images/vshipping_erp.jpg",
     metrics: [
-      { label: "Global State", value: "Zustand" },
-      { label: "Query Cache", value: "RTK Query" },
-      { label: "Design System", value: "Tailwind CSS" },
+      { label: "Backend Service", value: "NestJS REST" },
+      { label: "Database Layer", value: "MongoDB & Indices" },
+      { label: "Access Security", value: "RBAC Guards" },
     ],
-    stack: ["React", "TypeScript", "Tailwind CSS", "Zustand", "RTK Query", "React Hook Form", "React PDF"],
+    stack: [
+      "NestJS",
+      "React.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "RBAC",
+      "REST APIs",
+      "Tailwind CSS",
+    ],
     problem:
-      "A global maritime shipment company required a centralized logistics ERP to manage complex vessel routes, container inventory schedules, multi-currency invoices, and real-time shipment status updates.",
+      "Global maritime shipping operations required a unified logistics tracking platform to manage vessel schedules, container manifests, and multi-user clearance workflows with strict access controls and zero data latency.",
     solution:
-      "Architected the front-end admin dashboard using React and TypeScript. Managed synchronous UI state with lightweight Zustand stores and handled network caching and auto-refetching using RTK Query. Designed responsive dashboards using Tailwind CSS and built printable shipment manifests with React PDF.",
+      "Engineered the complete full-stack solution: architected modular frontend application workflows and responsive user interfaces with React and Tailwind CSS. Built high-throughput backend services and REST APIs using NestJS clean modular architecture with robust request validation. Implemented role-based access control (RBAC) and led MongoDB schema design with specialized indexing for high-efficiency logistics tracking.",
     architectureNotes: [
-      "Streamlined API consumption by integrating RTK Query endpoints with automatic cache invalidation on shipment status mutations.",
-      "Decoupled modal and filter state into atomic Zustand slices, avoiding prop-drilling across multi-tier route views.",
-      "Designed dynamic admin panel interfaces with high-density data tables and live status beacons.",
-      "Collaborated with backend developers to resolve complex business logic edge cases in logistics calculations.",
+      "Architected modular frontend application workflows and responsive user interfaces for shipping and logistics operations.",
+      "Engineered backend services and REST APIs with NestJS, implementing clean modular architecture and request validation.",
+      "Implemented secure authentication and role-based access control (RBAC) to protect shipment records and operational workflows.",
+      "Led MongoDB database design and query optimization, structuring schemas and indices for high-efficiency logistics tracking.",
     ],
-    codeSnippet: `// RTK Query Shipment Endpoint & Zustand Route State
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { create } from "zustand";
-
-export const shipmentApi = createApi({
-  reducerPath: "shipmentApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api/v1/shipments" }),
-  tagTypes: ["Shipments"],
-  endpoints: (builder) => ({
-    getShipments: builder.query<Shipment[], ShipmentFilter>({
-      query: (filters) => ({ url: "", params: filters }),
-      providesTags: ["Shipments"],
-    }),
-    updateVesselStatus: builder.mutation<void, { id: string; status: string }>({
-      query: ({ id, ...patch }) => ({
-        url: \`/\${id}/status\`,
-        method: "PATCH",
-        body: patch,
-      }),
-      invalidatesTags: ["Shipments"],
-    }),
-  }),
-});
-
-interface ShipmentStore {
-  selectedContainer: string | null;
-  selectContainer: (id: string) => void;
-}
-
-export const useShipmentStore = create<ShipmentStore>((set) => ({
-  selectedContainer: null,
-  selectContainer: (id) => set({ selectedContainer: id }),
-}));`,
+  },
+  {
+    id: "echologyx-cro",
+    title: "Enterprise CRO & A/B Testing Experimentation Engine",
+    subtitle: "High-Impact Conversion Experiments on AB Tasty, Convert & Monetate with Sub-Second Web Vitals",
+    company: "Echologyx Ltd (Dhaka)",
+    rolePeriod: "Software Engineer | Sep 2023 — Apr 2024",
+    category: "cro",
+    categoryLabel: "CRO & Performance",
+    image: "/images/echologyx_cro.jpg",
+    metrics: [
+      { label: "Platforms", value: "AB Tasty & Convert" },
+      { label: "Performance", value: "Optimal Web Vitals" },
+      { label: "Core Stack", value: "Vanilla JS & CSS3" },
+    ],
+    stack: [
+      "Vanilla JavaScript",
+      "HTML5",
+      "CSS3",
+      "AB Tasty",
+      "Convert",
+      "Monetate",
+      "Core Web Vitals",
+      "A/B Testing",
+    ],
+    problem:
+      "International enterprise clients required high-frequency experimentation campaigns, dynamic checkout modifications, and variant injection without degrading Core Web Vitals (LCP, FID, CLS) or causing flickers.",
+    solution:
+      "Developed and maintained Conversion Rate Optimization (CRO) and A/B testing implementations for international enterprise clients using lightweight Vanilla JavaScript, HTML5, and CSS3. Launched experimentation campaigns on AB Tasty, Convert, and Monetate, boosting client engagement and conversion rates while continuously fine-tuning script execution for optimal speed.",
+    architectureNotes: [
+      "Developed and maintained Conversion Rate Optimization (CRO) and A/B testing implementations for international enterprise clients using Vanilla JavaScript, HTML5, and CSS3.",
+      "Implemented high-impact experimentation campaigns across platforms including AB Tasty, Convert, and Monetate, boosting client engagement and conversion rates.",
+      "Analyzed web vitals and fine-tuned script execution to ensure experimentation snippets maintained optimal website speed.",
+    ],
   },
   {
     id: "unite-living",
@@ -150,124 +138,79 @@ export const useShipmentStore = create<ShipmentStore>((set) => ({
     company: "Gain Solutions Ltd (Client: Unite Living, Norway)",
     rolePeriod: "JavaScript Developer | Sep 2021 — Aug 2023",
     category: "proptech",
-    categoryLabel: "PropTech & Real Estate",
+    categoryLabel: "PropTech Platform",
     image: "/images/unite_living.jpg",
     metrics: [
-      { label: "Agile Team", value: "20+ Devs" },
-      { label: "API Protocol", value: "GraphQL" },
-      { label: "Client Stack", value: "React + Vue" },
+      { label: "Agile Scale", value: "20+ Engineers" },
+      { label: "State Strategy", value: "Optimistic UI" },
+      { label: "Prototypes", value: "Vue.js POC" },
     ],
-    stack: ["React.js", "GraphQL", "Apollo Client", "Context API", "Bootstrap", "Moment.js", "CSS"],
+    stack: [
+      "React.js",
+      "JavaScript (ES6+)",
+      "Vue.js",
+      "Bootstrap",
+      "RESTful APIs",
+      "State Caching",
+      "Agile",
+    ],
     problem:
-      "A Norwegian real-estate platform needed an all-in-one web portal for landlords and tenants to search listings, sign rental contracts, process monthly payments, and submit maintenance tickets with high reliability.",
+      "A Norwegian real-estate platform required an all-in-one web portal for landlords and tenants to search listings, sign rental contracts, process monthly payments, and submit maintenance tickets with high reliability.",
     solution:
-      "Collaborated as a core front-end engineer in a 20+ member agile team. Handled seamless interaction between Apollo GraphQL APIs and React components, conducted thorough peer code reviews, and implemented responsive Scandinavian-designed user interfaces.",
+      "Collaborated as a core front-end engineer in an Agile cross-functional team of 20+ engineers. Built frontend features for Unite Living, integrated RESTful APIs and state caching with React components leveraging optimistic UI updates, developed responsive cross-browser interfaces, conducted peer code reviews, and created Vue.js proof-of-concept prototypes.",
     architectureNotes: [
-      "Managed GraphQL queries and mutations with Apollo Client, implementing normalized cache policies for fast client transitions.",
-      "Participated in active agile sprints, backlog grooming, and cross-timezone collaboration with Norwegian stakeholders.",
-      "Investigated alternative front-end architectures including Vue.js and Meteor to evaluate long-term framework evolution.",
-      "Reviewed and maintained code quality standards across customer-facing and administrative dashboards.",
+      "Built frontend features for Unite Living (a Norwegian real estate platform), collaborating in an Agile cross-functional team of 20+ engineers.",
+      "Integrated RESTful APIs and state caching with React components, leveraging optimistic UI updates.",
+      "Developed responsive, cross-browser interfaces with React.js, modern JavaScript (ES6+), and Bootstrap; conducted peer code reviews.",
+      "Created technical proof-of-concept prototypes in Vue.js to assess migration viability for legacy subsystems.",
     ],
-    codeSnippet: `// Apollo Client GraphQL Integration for Unite Living
-import { useQuery, gql } from "@apollo/client";
-
-export const GET_PROPERTY_LISTINGS = gql\`
-  query GetProperties($location: String!, $limit: Int!) {
-    properties(location: $location, limit: $limit) {
-      id
-      title
-      monthlyRent
-      squareMeters
-      isAvailable
-      address {
-        street
-        city
-      }
-    }
-  }
-\`;
-
-export function PropertyListingsView({ location }: { location: string }) {
-  const { data, loading, error } = useQuery(GET_PROPERTY_LISTINGS, {
-    variables: { location, limit: 20 },
-    fetchPolicy: "cache-and-network",
-  });
-
-  if (loading) return <SkeletonLoader count={4} />;
-  return <ListingGrid properties={data?.properties ?? []} />;
-}`,
   },
   {
     id: "tilleli-app",
-    title: "Tilleli Native Mobile Application",
-    subtitle: "Cross-Platform Real-Time Synchronized Application with Firebase & Firestore",
-    company: "Tilleli Inc. (New Jersey, USA)",
-    rolePeriod: "React Native Developer (Intern) | May 2021 — Aug 2021",
+    title: "Tilleli Cross-Platform Native Mobile Application",
+    subtitle: "Cross-Platform Real-Time Synchronized Application with Firebase & Cloud Firestore",
+    company: "Tilleli Inc. (Remote USA)",
+    rolePeriod: "React Native Developer Intern | May 2021 — Aug 2021",
     category: "mobile",
     categoryLabel: "Cross-Platform Mobile",
     image: "/images/tilleli_mobile.jpg",
     metrics: [
       { label: "Platforms", value: "iOS & Android" },
-      { label: "Database", value: "Cloud Firestore" },
-      { label: "UI System", value: "Styled-Comp" },
+      { label: "Data Sync", value: "Sub-Second" },
+      { label: "UI System", value: "Styled-Components" },
     ],
-    stack: ["React Native", "Context API", "Styled Components", "Firebase", "Cloud Firestore"],
+    stack: [
+      "React Native",
+      "Styled Components",
+      "Firebase",
+      "Cloud Firestore",
+      "Figma",
+      "iOS & Android",
+    ],
     problem:
       "A US startup required a cross-platform mobile application with instant live synchronization of user feeds, responsive ergonomics across varied iOS and Android screen sizes, and offline persistence.",
     solution:
-      "Engineered mobile screens and component logic using React Native. Seamlessly connected the app to Firebase Authentication and Cloud Firestore for real-time data streaming, and crafted responsive UIs using styled-components.",
+      "Developed cross-platform mobile screens using React Native and Styled Components, converting Figma mockups into pixel-perfect UIs. Connected Firebase and Cloud Firestore for real-time data sync and authentication, ensuring sub-second updates across devices.",
     architectureNotes: [
-      "Built declarative mobile UI components with Styled Components, ensuring design system tokens translated cleanly across platforms.",
-      "Leveraged Firestore snapshot listeners (\`onSnapshot\`) to deliver real-time optimistic feed updates.",
-      "Managed user authentication sessions and global state cleanly using React Context API.",
+      "Developed cross-platform mobile screens using React Native and Styled Components, converting Figma mockups into pixel-perfect UIs.",
+      "Connected Firebase and Cloud Firestore for real-time data sync and authentication, ensuring sub-second updates across devices.",
+      "Ensured responsive layouts and native ergonomics on both iOS and Android platforms.",
     ],
-    codeSnippet: `// React Native Real-Time Firestore Synchronization Hook
-import { useEffect, useState } from "react";
-import firestore from "@react-native-firebase/firestore";
-import styled from "styled-components/native";
-
-export const CardContainer = styled.View\`
-  background-color: #121826;
-  border-radius: 16px;
-  padding: 16px;
-  margin-vertical: 8px;
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.1);
-\`;
-
-export function useRealtimeFeed(userId: string) {
-  const [feed, setFeed] = useState<FeedItem[]>([]);
-
-  useEffect(() => {
-    const unsubscribe = firestore()
-      .collection("userFeeds")
-      .doc(userId)
-      .collection("items")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((querySnapshot) => {
-        const items = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setFeed(items as FeedItem[]);
-      });
-
-    return () => unsubscribe();
-  }, [userId]);
-
-  return feed;
-}`,
   },
 ];
 
-const CATEGORIES = [
+const CATEGORIES: { id: ProjectCategory; label: string }[] = [
   { id: "all", label: "All Projects" },
-  { id: "erp", label: "Enterprise ERP" },
-  { id: "logistics", label: "Logistics & Maritime" },
+  { id: "erp", label: "Garment ERP" },
+  { id: "fullstack", label: "Full-Stack Logistics" },
+  { id: "cro", label: "CRO & Experimentation" },
   { id: "proptech", label: "PropTech" },
   { id: "mobile", label: "Mobile Apps" },
-] as const;
+];
 
 export default function CaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
 
   const filteredStudies = useMemo(() => {
     if (activeFilter === "all") return CASE_STUDIES;
@@ -284,11 +227,11 @@ export default function CaseStudiesSection() {
             <span>Featured Case Studies</span>
           </div>
           <h2 className="section-title">
-            Enterprise ERP &amp; <span className="text-gradient">Production Web Systems</span>
+            Enterprise ERP &amp; <span className="text-gradient">Production Systems</span>
           </h2>
           <p className="section-subtitle">
-            Engineered across 5+ years for Echologyx Ltd, V-Shipping BD,
-            Gain Solutions (Unite Living Norway), and Tilleli Inc. (USA).
+            Engineered across 5 years for Echotex Ltd, V Shipping BD,
+            Echologyx Ltd, Gain Solutions (Unite Living Norway), and Tilleli Inc. (USA).
           </p>
         </div>
 
@@ -423,10 +366,11 @@ export default function CaseStudiesSection() {
                 </div>
                 <h3
                   style={{
-                    fontSize: "1.32rem",
+                    fontSize: "1.25rem",
                     fontWeight: 800,
                     color: "var(--text-white)",
                     marginBottom: "6px",
+                    lineHeight: 1.35,
                   }}
                 >
                   {study.title}
@@ -459,7 +403,7 @@ export default function CaseStudiesSection() {
                     <div key={idx} style={{ textAlign: "center" }}>
                       <div
                         style={{
-                          fontSize: "1rem",
+                          fontSize: "0.95rem",
                           fontWeight: 800,
                           color: "var(--accent-primary)",
                           letterSpacing: "-0.02em",
@@ -601,15 +545,16 @@ export default function CaseStudiesSection() {
               </span>
               <h2
                 style={{
-                  fontSize: "1.75rem",
+                  fontSize: "1.65rem",
                   fontWeight: 900,
                   color: "var(--text-white)",
                   marginTop: "6px",
+                  lineHeight: 1.3,
                 }}
               >
                 {selectedCase.title}
               </h2>
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", marginTop: "4px" }}>
                 {selectedCase.subtitle}
               </p>
             </div>

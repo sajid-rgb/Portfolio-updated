@@ -21,19 +21,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Md. Sajidur Rahman | 5+ Years Experienced Front-End Developer",
+  title: "Md. Sajidur Rahman | Full-Stack Engineer (React, Next.js, TypeScript & Node.js)",
   description:
-    "Frontend Developer with 5+ years of experience building scalable enterprise ERP and web applications using React, Next.js, TypeScript, Redux, Zustand, RTK Query, React Hook Form, Tailwind CSS, Material UI, and modern JavaScript.",
+    "Full-Stack Engineer with 5 years of experience architecting and scaling business-critical enterprise applications. Deep expertise in React.js, TypeScript, Next.js, Node.js, NestJS, and MongoDB. Proven track record optimizing complex ERP workflows, reusable UI libraries, and automated testing.",
   keywords: [
     "Md. Sajidur Rahman",
-    "Front-End Developer",
-    "React",
+    "Full-Stack Engineer",
+    "React.js",
     "Next.js",
     "TypeScript",
-    "Redux Toolkit",
-    "Zustand",
-    "RTK Query",
-    "ERP Applications",
+    "Node.js",
+    "NestJS",
+    "Express.js",
+    "PostgreSQL",
+    "MongoDB",
+    "Enterprise ERP",
+    "Echotex Ltd",
+    "Vitest",
+    "React Testing Library",
     "Tailwind CSS",
     "Material UI",
   ],

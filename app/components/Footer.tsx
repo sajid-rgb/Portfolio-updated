@@ -50,7 +50,7 @@ export default function Footer() {
                 Md. Sajidur Rahman
               </div>
               <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
-                5+ Years Senior Front-End Developer • Dhaka, Bangladesh
+                Full-Stack Engineer (React, Next.js, TypeScript &amp; Node.js) • Dhaka, Bangladesh
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function Footer() {
             </a>
             <span style={{ color: "var(--text-muted)" }}>•</span>
             <a
-              href="https://www.linkedin.com/in/md-sajidur-rahman-a10b8895/"
+              href="https://www.linkedin.com/in/md-sajidur-rahman"
               target="_blank"
               rel="noreferrer"
               style={{ color: "var(--text-secondary)", textDecoration: "none" }}

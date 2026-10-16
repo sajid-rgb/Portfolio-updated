@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { SearchIcon, CloseIcon, TerminalIcon, SunIcon, MoonIcon, CodeIcon, MailIcon, GithubIcon, LinkedinIcon, ArrowRightIcon } from "./Icons";
+import { SearchIcon, CloseIcon, TerminalIcon, SunIcon, ArrowRightIcon } from "./Icons";
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -30,46 +30,42 @@ export default function CommandPalette({
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    onClose();
+  };
+
   const commands: CommandItem[] = [
     {
       id: "projects",
-      title: "Jump to: Featured Case Studies & ERP Projects",
+      title: "Jump to: Featured Case Studies & Production Systems",
       category: "Navigation",
       shortcut: "P",
-      action: () => {
-        window.location.href = "#projects";
-        onClose();
-      },
+      action: () => scrollToSection("projects"),
     },
     {
       id: "skills",
       title: "Jump to: Technical Stack & Capabilities Matrix",
       category: "Navigation",
       shortcut: "S",
-      action: () => {
-        window.location.href = "#skills";
-        onClose();
-      },
+      action: () => scrollToSection("skills"),
     },
     {
       id: "journey",
       title: "Jump to: Experience & Career History",
       category: "Navigation",
       shortcut: "E",
-      action: () => {
-        window.location.href = "#journey";
-        onClose();
-      },
+      action: () => scrollToSection("journey"),
     },
     {
       id: "contact",
       title: "Jump to: Direct Contact Station",
       category: "Navigation",
       shortcut: "C",
-      action: () => {
-        window.location.href = "#contact";
-        onClose();
-      },
+      action: () => scrollToSection("contact"),
     },
     {
       id: "toggle-theme",
@@ -102,10 +98,10 @@ export default function CommandPalette({
     },
     {
       id: "linkedin",
-      title: "Open LinkedIn Profile",
+      title: "Open LinkedIn Profile (md-sajidur-rahman)",
       category: "Social",
       action: () => {
-        window.open("https://www.linkedin.com/in/md-sajidur-rahman-a10b8895/", "_blank");
+        window.open("https://www.linkedin.com/in/md-sajidur-rahman", "_blank");
         onClose();
       },
     },
@@ -118,9 +114,12 @@ export default function CommandPalette({
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 50);
-      setSelectedIndex(0);
-      setQuery("");
+      const timer = setTimeout(() => {
+        inputRef.current?.focus();
+        setSelectedIndex(0);
+        setQuery("");
+      }, 50);
+      return () => clearTimeout(timer);
     }
   }, [isOpen]);
 

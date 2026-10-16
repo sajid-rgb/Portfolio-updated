@@ -1,67 +1,127 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { CpuIcon, SearchIcon, CheckIcon, SparklesIcon } from "./Icons";
+import { CpuIcon, SearchIcon } from "./Icons";
+
+export type SkillCategory = "all" | "frontend" | "backend" | "cloud" | "styling" | "testing";
 
 interface SkillItem {
   name: string;
-  category: "frontend" | "styling" | "backend" | "tools";
+  category: "frontend" | "backend" | "cloud" | "styling" | "testing";
   level: "Expert" | "Advanced" | "Proficient";
   details: string;
 }
 
 const SKILLS_DATA: SkillItem[] = [
-  // Frontend
+  // Frontend & State
   {
-    name: "React & Next.js",
+    name: "React.js & Next.js",
     category: "frontend",
     level: "Expert",
-    details: "Component architecture, SSR/SSG, virtualized data grids, and memory tuning for 1,500+ ERP users.",
+    details: "Architecting high-performance enterprise web apps, SSR, memoization, and complex ERP workflows.",
   },
   {
     name: "TypeScript & JavaScript (ES6+)",
     category: "frontend",
     level: "Expert",
-    details: "Strict types, generic constraints, advanced async flows, and scalable enterprise codebases.",
+    details: "Strict types, generic constraints, asynchronous architectures, and scalable enterprise design patterns.",
   },
   {
-    name: "Zustand & Redux Toolkit",
+    name: "Redux Toolkit, Zustand & RTK Query",
     category: "frontend",
     level: "Expert",
-    details: "Decoupled global state, atomic Zustand store slices, and RTK slice machine state orchestration.",
-  },
-  {
-    name: "RTK Query & Apollo GraphQL",
-    category: "frontend",
-    level: "Expert",
-    details: "Normalized client caching, optimistic updates, and multi-endpoint data ingestion.",
-  },
-  {
-    name: "React Hook Form & Yup",
-    category: "frontend",
-    level: "Expert",
-    details: "High-speed uncontrolled form inputs eliminating re-renders during massive data input workflows.",
-  },
-  {
-    name: "pdfmake & React PDF",
-    category: "frontend",
-    level: "Expert",
-    details: "Client-side PDF generation of complex multi-column ERP invoices, financial tables, and shipping manifests.",
+    details: "State optimization, normalized caching, and decoupled state management eliminating redundant re-renders.",
   },
   {
     name: "React Native",
     category: "frontend",
     level: "Advanced",
-    details: "Cross-platform mobile apps for iOS and Android with real-time Firebase & Cloud Firestore sync.",
+    details: "Cross-platform mobile apps for iOS and Android with Styled Components & real-time Firebase sync.",
   },
   {
-    name: "Vue.js & Meteor",
+    name: "Vue.js & Context API",
     category: "frontend",
-    level: "Proficient",
-    details: "Component lifecycle, reactivity, and framework evaluation for modern frontend web applications.",
+    level: "Advanced",
+    details: "Component lifecycle, reactivity, and technical proof-of-concept migration feasibility prototypes.",
+  },
+  {
+    name: "HTML5, CSS3 & Sass",
+    category: "frontend",
+    level: "Expert",
+    details: "Semantic markup, modern CSS layouts, responsive design, and maintainable CSS preprocessor architectures.",
   },
 
-  // Styling & UI
+  // Backend & Databases
+  {
+    name: "Node.js & Express.js",
+    category: "backend",
+    level: "Advanced",
+    details: "RESTful API development, asynchronous middleware pipelines, and scalable backend microservices.",
+  },
+  {
+    name: "NestJS",
+    category: "backend",
+    level: "Advanced",
+    details: "Modular backend architecture, dependency injection, request validation (DTOs), and clean API services.",
+  },
+  {
+    name: "MongoDB",
+    category: "backend",
+    level: "Advanced",
+    details: "Document schema modeling, aggregation pipelines, query optimization, and indices for logistics tracking.",
+  },
+  {
+    name: "PostgreSQL & SQL",
+    category: "backend",
+    level: "Advanced",
+    details: "Relational database modeling, complex queries, transactions, and high-integrity data persistence.",
+  },
+  {
+    name: "Prisma ORM",
+    category: "backend",
+    level: "Advanced",
+    details: "Type-safe database queries, automated migrations, and schema management across relational databases.",
+  },
+  {
+    name: "REST APIs & Firebase",
+    category: "backend",
+    level: "Expert",
+    details: "Clean API contract design, Cloud Firestore real-time sync, and secure authentication services.",
+  },
+  {
+    name: "Python",
+    category: "backend",
+    level: "Proficient",
+    details: "Algorithmic scripting, backend utilities, data manipulation, and automation workflows.",
+  },
+
+  // Cloud & DevOps
+  {
+    name: "AWS & Azure",
+    category: "cloud",
+    level: "Advanced",
+    details: "Cloud deployment infrastructure, serverless functions, object storage, and environment management.",
+  },
+  {
+    name: "Docker",
+    category: "cloud",
+    level: "Advanced",
+    details: "Containerizing frontend and backend microservices, reproducible dev environments, and CI/CD pipelines.",
+  },
+  {
+    name: "Git & GitHub",
+    category: "cloud",
+    level: "Expert",
+    details: "Branching strategies, pull requests, thorough peer code reviews, and automated CI workflows.",
+  },
+  {
+    name: "Jira & Agile Workflows",
+    category: "cloud",
+    level: "Expert",
+    details: "Sprint delivery velocity, cross-functional collaboration, backlog grooming, and enterprise delivery.",
+  },
+
+  // UI & Styling
   {
     name: "Tailwind CSS",
     category: "styling",
@@ -72,64 +132,59 @@ const SKILLS_DATA: SkillItem[] = [
     name: "Material UI (MUI)",
     category: "styling",
     level: "Expert",
-    details: "Enterprise component theming, data tables, dialogs, and admin panel interfaces for Echologyx ERP.",
+    details: "Enterprise theme customization, data tables, dialogs, and garment manufacturing ERP workflows.",
   },
   {
-    name: "Styled-Components",
+    name: "Styled Components",
     category: "styling",
     level: "Expert",
-    details: "CSS-in-JS scoped styles, dynamic props-based styling, and theme provider orchestration.",
+    details: "CSS-in-JS scoped styles, dynamic theming, and cross-platform React Native ergonomics.",
   },
   {
-    name: "CSS3, SASS & Bootstrap",
+    name: "Bootstrap & Responsive Design",
     category: "styling",
     level: "Expert",
-    details: "Fluid flexbox/grid layouts, responsive breakpoints, animations, and Scandinavian UI in Unite Living.",
+    details: "Cross-browser interfaces, fluid grid systems, and Scandinavian UI implementations in Unite Living.",
   },
 
-  // Backend & Database
+  // Forms & Testing
   {
-    name: "Node.js & Express.js",
-    category: "backend",
-    level: "Advanced",
-    details: "REST API endpoints, middleware authentication, business logic validation, and microservices.",
-  },
-  {
-    name: "Firebase & Cloud Firestore",
-    category: "backend",
-    level: "Advanced",
-    details: "Real-time NoSQL document synchronization, snapshot listeners, and mobile backend integrations.",
-  },
-  {
-    name: "MongoDB",
-    category: "backend",
-    level: "Advanced",
-    details: "Document schema modeling, aggregation pipelines, and query optimization for web applications.",
-  },
-  {
-    name: "Python",
-    category: "backend",
-    level: "Proficient",
-    details: "Scripting, algorithmic problem solving, and automation workflows.",
-  },
-
-  // Tools & Workflow
-  {
-    name: "Git & GitHub",
-    category: "tools",
+    name: "Vitest & React Testing Library",
+    category: "testing",
     level: "Expert",
-    details: "Branching strategies, pull requests, thorough peer code reviews, and version control workflows.",
+    details: "Authored robust component test suites, automated regression testing, and API contract validation.",
   },
   {
-    name: "Jira, Trello & Monday.com",
-    category: "tools",
+    name: "Jest",
+    category: "testing",
+    level: "Advanced",
+    details: "Unit and integration testing, mocking modules, and test-driven development practices.",
+  },
+  {
+    name: "React Hook Form & Yup",
+    category: "testing",
     level: "Expert",
-    details: "Agile sprints, backlog grooming, ticket tracking, and cross-functional team project delivery.",
+    details: "Multi-step dynamic enterprise forms, uncontrolled inputs, and validation schemas cutting user errors.",
+  },
+  {
+    name: "React-PDF & pdfMake",
+    category: "testing",
+    level: "Expert",
+    details: "Client-side export of multi-column production reports, garment invoices, and shipping manifests.",
   },
 ];
 
+const CATEGORY_TABS: { id: SkillCategory; label: string }[] = [
+  { id: "all", label: "All Skills (25)" },
+  { id: "frontend", label: "Frontend & State" },
+  { id: "backend", label: "Backend & Databases" },
+  { id: "cloud", label: "Cloud & DevOps" },
+  { id: "styling", label: "UI & Styling" },
+  { id: "testing", label: "Testing & Forms" },
+];
+
 export default function SkillsRadar() {
-  const [filter, setFilter] = useState<"all" | "frontend" | "styling" | "backend" | "tools">("all");
+  const [filter, setFilter] = useState<SkillCategory>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredSkills = useMemo(() => {
@@ -155,7 +210,8 @@ export default function SkillsRadar() {
             Core Skills &amp; <span className="text-gradient">Technology Stack</span>
           </h2>
           <p className="section-subtitle">
-            Battle-tested across 5+ years of shipping enterprise ERP solutions, scalable web systems, and high-performance apps.
+            Battle-tested across 5 years of architecting enterprise ERP solutions, scalable backend APIs,
+            and automated test suites.
           </p>
         </div>
 
@@ -178,18 +234,12 @@ export default function SkillsRadar() {
               flexWrap: "wrap",
             }}
           >
-            {[
-              { id: "all", label: "All Skills (18)" },
-              { id: "frontend", label: "Frontend & Mobile" },
-              { id: "styling", label: "Styling & UI Systems" },
-              { id: "backend", label: "Backend & Cloud" },
-              { id: "tools", label: "Tools & Agile" },
-            ].map((tab) => {
+            {CATEGORY_TABS.map((tab) => {
               const isActive = filter === tab.id;
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setFilter(tab.id as any)}
+                  onClick={() => setFilter(tab.id)}
                   className="btn btn-sm"
                   style={{
                     borderRadius: "9999px",
@@ -236,7 +286,7 @@ export default function SkillsRadar() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search skill (e.g. Zustand, PDF)..."
+              placeholder="Search skill (e.g. NestJS, Vitest)..."
               style={{
                 width: "100%",
                 padding: "9px 14px 9px 38px",

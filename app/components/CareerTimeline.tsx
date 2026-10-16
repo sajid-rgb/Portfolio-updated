@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TerminalIcon, CheckIcon, SparklesIcon, GraduationCapIcon } from "./Icons";
+import { CheckIcon, SparklesIcon, GraduationCapIcon } from "./Icons";
 
 interface ExperienceMilestone {
   period: string;
@@ -15,62 +15,93 @@ interface ExperienceMilestone {
 
 const CAREER_MILESTONES: ExperienceMilestone[] = [
   {
-    period: "September 2023 — Present",
+    period: "May 2024 — Present",
     role: "Software Engineer",
-    company: "Echologyx Ltd",
-    location: "Uttara Sector-3, Dhaka, Bangladesh",
+    company: "Echotex Ltd",
+    location: "Gazipur, Dhaka, Bangladesh",
     type: "Full Time",
     responsibilities: [
-      "Developed reusable React components that reduced overall team development cycle time.",
-      "Optimized large-scale ERP modules handling 1,500+ active enterprise users.",
-      "Improved page rendering performance and eliminated unnecessary component re-renders by 55%.",
-      "Built dynamic, high-integrity forms using React Hook Form and Yup validation schemas.",
-      "Designed complex data grids with multi-column filtering, pagination, data export, and client-side PDF generation.",
-      "Collaborated with backend teams to architect and deliver seamless REST API integrations.",
+      "Architect and scale frontend modules for an enterprise ERP platform used by garment factory users, translating complex operational logic into high-performance UI workflows.",
+      "Eliminated redundant React re-renders across complex ERP forms and data-heavy tables using memoization and state optimization, noticeably improving UI responsiveness.",
+      "Built dynamic, multi-step enterprise forms with React Hook Form and Yup validation, significantly minimizing submission errors.",
+      "Engineered advanced data grids featuring multi-column sorting, filtering, server-side pagination, and client-side PDF export (React-PDF, pdfMake).",
+      "Standardized frontend patterns by building a reusable component library, cutting sprint delivery times for feature teams by 25%.",
+      "Authored component test suites with Vitest and React Testing Library; collaborated with backend teams on REST/.NET API contracts and data schemas.",
     ],
-    techStack: ["React", "TypeScript", "Redux", "Material UI", "React Hook Form", "Styled Components", "pdfmake"],
+    techStack: [
+      "React.js",
+      "TypeScript",
+      "Vitest",
+      "React Testing Library",
+      "React Hook Form",
+      "Yup",
+      "React-PDF",
+      "pdfMake",
+      "REST & .NET APIs",
+    ],
   },
   {
-    period: "August 2025 — Present",
+    period: "September 2023 — April 2024",
     role: "Software Engineer",
-    company: "V-Shipping BD",
+    company: "Echologyx Ltd",
     location: "Dhaka, Bangladesh",
-    type: "Part Time",
+    type: "Full Time",
     responsibilities: [
-      "Working as a front-end developer on a shipment-related ERP platform for an international maritime shipping company.",
-      "Building new features, implementing complex business logic, and designing dynamic admin panel UIs.",
-      "Architected responsive front-end state and data layer using React, TypeScript, Tailwind CSS, Zustand, and RTK Query.",
-      "Integrating REST APIs and collaborating closely with backend engineers to resolve business logic and API contracts.",
+      "Developed and maintained Conversion Rate Optimization (CRO) and A/B testing implementations for international enterprise clients using Vanilla JavaScript, HTML5, and CSS3.",
+      "Implemented high-impact experimentation campaigns across platforms including AB Tasty, Convert, and Monetate, boosting client engagement and conversion rates.",
+      "Analyzed web vitals and fine-tuned script execution to ensure experimentation snippets maintained optimal website speed.",
     ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Zustand", "RTK Query", "React Hook Form", "React PDF"],
+    techStack: [
+      "Vanilla JavaScript",
+      "HTML5",
+      "CSS3",
+      "AB Tasty",
+      "Convert",
+      "Monetate",
+      "Core Web Vitals",
+      "A/B Testing",
+    ],
   },
   {
     period: "September 2021 — August 2023",
     role: "JavaScript Developer",
     company: "Gain Solutions Ltd",
-    location: "Mirpur 12, Dhaka, Bangladesh",
+    location: "Dhaka, Bangladesh",
     type: "Full Time",
     responsibilities: [
-      "Worked as a front-end developer on Norwegian-based PropTech project 'Unite Living', collaborating in an agile team of 20+ members.",
-      "Handled high-throughput interactions between Apollo GraphQL APIs and React components.",
-      "Conducted thorough peer code reviews and enforced front-end engineering best practices.",
-      "Implemented all front-end logic and responsive design using React.js, Bootstrap, CSS, and modern JavaScript.",
-      "Investigated and benchmarked alternative frameworks like Vue.js and Meteor.",
+      "Built frontend features for Unite Living (a Norwegian real estate platform), collaborating in an Agile cross-functional team of 20+ engineers.",
+      "Integrated RESTful APIs and state caching with React components, leveraging optimistic UI updates.",
+      "Developed responsive, cross-browser interfaces with React.js, modern JavaScript (ES6+), and Bootstrap; conducted peer code reviews.",
+      "Created technical proof-of-concept prototypes in Vue.js to assess migration viability for legacy subsystems.",
     ],
-    techStack: ["React", "Context API", "Bootstrap", "Apollo Client (GraphQL)", "Moment.js", "CSS"],
+    techStack: [
+      "React.js",
+      "JavaScript (ES6+)",
+      "Vue.js",
+      "Bootstrap",
+      "REST APIs",
+      "State Caching",
+      "Agile",
+    ],
   },
   {
     period: "May 2021 — August 2021",
-    role: "React Native Developer",
+    role: "React Native Developer Intern",
     company: "Tilleli Inc.",
-    location: "New Jersey, USA (Remote)",
+    location: "Remote (USA)",
     type: "Internship",
     responsibilities: [
-      "Implemented and designed native cross-platform mobile application logic using React Native for iOS and Android.",
-      "Configured Firebase and Cloud Firestore for real-time document synchronization and authentication.",
-      "Delivered a flawless, highly responsive UI by applying styled-components for pixel-perfect design alignment.",
+      "Developed cross-platform mobile screens using React Native and Styled Components, converting Figma mockups into pixel-perfect UIs.",
+      "Connected Firebase and Cloud Firestore for real-time data sync and authentication, ensuring sub-second updates across devices.",
     ],
-    techStack: ["React Native", "Context API", "Styled Components", "Firebase", "Firestore"],
+    techStack: [
+      "React Native",
+      "Styled Components",
+      "Firebase",
+      "Cloud Firestore",
+      "Figma",
+      "iOS & Android",
+    ],
   },
 ];
 
@@ -88,8 +119,8 @@ export default function CareerTimeline() {
             Professional <span className="text-gradient">Experience</span>
           </h2>
           <p className="section-subtitle">
-            Track record of delivering enterprise ERP modules, international PropTech solutions,
-            and real-time mobile applications across 5+ years.
+            Demonstrated impact across garment factory ERPs, international CRO campaigns,
+            Norwegian PropTech platforms, and mobile apps.
           </p>
         </div>
 
