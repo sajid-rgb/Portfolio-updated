@@ -1,4 +1,4 @@
-# Md. Sajidur Rahman — Senior Front-End Developer Portfolio
+# Md. Sajidur Rahman — Full-Stack Engineer Portfolio
 
 > **Live Portfolio:** [https://portfolio-flame-three-91.vercel.app](https://portfolio-flame-three-91.vercel.app)  
 > *Production Deployment on Vercel*
@@ -13,12 +13,12 @@
 
 ## 👨‍💻 About Md. Sajidur Rahman
 
-Senior Front-End Developer with **5+ years of production experience** architecting high-performance enterprise ERP systems, responsive web applications, and cross-platform mobile solutions. Currently engineering mission-critical ERP platforms at **Echologyx Ltd** and **V-Shipping BD**.
+Full-Stack Engineer with **5 years of experience** architecting and scaling business-critical enterprise applications. Deep expertise in React.js, TypeScript, Next.js, and modern state architectures, with practical hands-on knowledge in backend development using Node.js, Express.js, NestJS, and MongoDB. Fast learner with strong full-stack fundamentals, proven track record optimizing complex ERP workflows used by garment factory users at **Echotex Ltd**, designing reusable UI libraries (+25% sprint velocity), and executing automated testing (Vitest, React Testing Library).
 
 - **Experience**: 5+ Years
 - **Location**: Dhaka, Bangladesh
 - **Email**: [sajidchowdhury1612@gmail.com](mailto:sajidchowdhury1612@gmail.com)
-- **LinkedIn**: [linkedin.com/in/md-sajidur-rahman-a10b8895](https://www.linkedin.com/in/md-sajidur-rahman-a10b8895/)
+- **LinkedIn**: [linkedin.com/in/md-sajidur-rahman](https://www.linkedin.com/in/md-sajidur-rahman)
 - **GitHub**: [github.com/sajid-rgb](https://github.com/sajid-rgb)
 
 ---
@@ -27,11 +27,12 @@ Senior Front-End Developer with **5+ years of production experience** architecti
 
 - 🌓 **Dual Theme Engine (Dark & White Mode)**: Seamlessly toggles between sleek Cyber Obsidian dark mode and crisp modern white mode with zero-flicker persistence via `localStorage`.
 - 🏢 **Enterprise Case Studies**: Real production breakdowns for:
-  - **Echologyx ERP**: High-throughput data grid, dynamic forms, and client-side PDF reporting for 1,500+ active enterprise users (-55% re-render drops).
-  - **V-Shipping Logistics ERP**: Maritime route management, container scheduling, and atomic state using Zustand & RTK Query.
-  - **Unite Living (Norway)**: Norwegian PropTech platform built with an agile team of 20+ engineers using React and Apollo GraphQL.
+  - **Echotex Garment ERP**: High-throughput data grid, reusable component library (+25% delivery boost), dynamic forms with Yup validation, Vitest/RTL automated testing, and client-side PDF export for garment factory operations.
+  - **V Shipping BD Logistics Platform**: Full-stack shipping tracking platform built with NestJS REST APIs, RBAC authorization, and optimized MongoDB schemas.
+  - **Echologyx CRO & Experimentation**: A/B testing implementations with Vanilla JS, HTML5, and CSS3 across AB Tasty, Convert, and Monetate, maintaining optimal Web Vitals.
+  - **Unite Living (Norway)**: Norwegian PropTech platform built with an agile team of 20+ engineers using React, REST APIs, and state caching.
   - **Tilleli Inc. (USA)**: Cross-platform mobile application built with React Native and Cloud Firestore real-time sync.
-- ⚡ **Interactive Capabilities Matrix**: Categorized technical stack covering Core Frameworks, State Management, UI Systems, and Backend APIs with real-time keyword search.
+- ⚡ **Interactive Capabilities Matrix**: 25 categorized technical skills covering Frontend & State, Backend & Databases, Cloud & DevOps, UI & Styling, and Testing & Forms with live search.
 - 📬 **Live Contact Station**: Real Next.js server route (`/api/contact`) dispatching messages directly to email, complete with input validation and 1-click fallback to native mail clients (Gmail/Apple Mail/Outlook) and WhatsApp.
 - ⌨️ **Command Palette (⌘K)**: Fast keyboard navigation to jump between sections, toggle themes, or copy contact information.
 
@@ -40,12 +41,10 @@ Senior Front-End Developer with **5+ years of production experience** architecti
 ## 🛠️ Technology Stack
 
 - **Framework**: Next.js 16 (App Router, Turbopack, React Server Components)
-- **Core**: React 19, TypeScript
-- **Styling**: Tailwind CSS v4, Modern CSS Custom Properties & Glassmorphism
-- **State & Data Caching**: Zustand, Redux Toolkit, RTK Query, Context API
-- **Forms & Validation**: React Hook Form, Yup
-- **Document & PDF Export**: pdfmake, React PDF
-- **APIs & Protocols**: REST APIs, GraphQL, Apollo Client
+- **Frontend & State**: React 19, TypeScript, Zustand, Redux Toolkit, RTK Query, Context API, React Native, Vue.js
+- **Backend & Databases**: Node.js, NestJS, Express.js, MongoDB, PostgreSQL, Prisma ORM, REST APIs, Firebase
+- **Styling**: Tailwind CSS v4, Material UI (MUI), Styled Components, Bootstrap
+- **Forms & Testing**: Vitest, React Testing Library, Jest, React Hook Form, Yup, React-PDF, pdfMake
 - **Hosting & CI/CD**: Vercel
 
 ---
